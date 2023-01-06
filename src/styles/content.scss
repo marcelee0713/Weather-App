@@ -34,6 +34,7 @@ hr {
   align-items: center;
 }
 .details {
+  position: relative;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -46,9 +47,43 @@ hr {
     justify-content: center;
   }
   .details-text {
-    font-weight: 800;
+    font-weight: 400;
     color: #5b97aa;
   }
+  .show-hover {
+    pointer-events: none;
+    position: absolute;
+    font-weight: 800;
+    background-color: #5b97aa;
+    border-radius: 25px;
+    width: 120px;
+    padding: 10px;
+    color: #153945;
+    opacity: 0;
+    top: -50px;
+    text-align: center;
+    box-shadow: 0 3px 5px 1px #0f1c20;
+    -webkit-transform: translateY(50px);
+    -webkit-transition: 300ms ease-in-out;
+  }
+
+  &:hover .show-hover {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+  }
+
+  /*
+  @keyframes showHover {
+    from {
+      opacity: 0;
+      -webkit-transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      -webkit-transform: translateY(0px);
+    }
+  }
+  */
 }
 // For svgs
 .image-svg {

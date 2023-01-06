@@ -45,13 +45,6 @@ export default function showContent() {
   const minTempSvgPlacements = document.createElement("div");
   const windPressureSvgPlacements = document.createElement("div");
 
-  const cityValue = document.createElement("div");
-  const tempValue = document.createElement("div");
-  const humidityValue = document.createElement("div");
-  const maxTempValue = document.createElement("div");
-  const minTempValue = document.createElement("div");
-  const windPressureValue = document.createElement("div");
-
   // Inside every SvgPlacements
   const citySvg = document.createElement("img");
   const tempSvg = document.createElement("img");
@@ -61,6 +54,20 @@ export default function showContent() {
   const minTempSvg1 = document.createElement("img");
   const minTempSvg2 = document.createElement("img");
   const windPressureSvg = document.createElement("img");
+
+  const cityValue = document.createElement("div");
+  const tempValue = document.createElement("div");
+  const humidityValue = document.createElement("div");
+  const maxTempValue = document.createElement("div");
+  const minTempValue = document.createElement("div");
+  const windPressureValue = document.createElement("div");
+
+  const cityHover = document.createElement("div");
+  const tempHover = document.createElement("div");
+  const humidityHover = document.createElement("div");
+  const maxTempHover = document.createElement("div");
+  const minTempHover = document.createElement("div");
+  const windPressureHover = document.createElement("div");
 
   content.appendChild(weatherImageContainer);
   content.appendChild(line);
@@ -90,6 +97,13 @@ export default function showContent() {
   maxTempDetail.appendChild(maxTempValue);
   minTempDetail.appendChild(minTempValue);
   windPressureDetail.appendChild(windPressureValue);
+
+  cityDetail.appendChild(cityHover);
+  tempDetail.appendChild(tempHover);
+  humidityDetail.appendChild(humidityHover);
+  maxTempDetail.appendChild(maxTempHover);
+  minTempDetail.appendChild(minTempHover);
+  windPressureDetail.appendChild(windPressureHover);
 
   citySvgPlacements.appendChild(citySvg);
   tempSvgPlacements.appendChild(tempSvg);
@@ -150,6 +164,15 @@ export default function showContent() {
   minTempSvg2.classList.add("small-svg");
   windPressureSvg.classList.add("image-svg");
 
+  cityHover.classList.add("show-hover");
+  tempHover.classList.add("show-hover");
+  humidityHover.classList.add("show-hover");
+  maxTempHover.classList.add("show-hover");
+  minTempHover.classList.add("show-hover");
+  windPressureHover.classList.add("show-hover");
+
+  // The values below will be changed later on
+
   weatherImage.src = thunderstorm11D;
   weatherDescription.textContent = "Thunderstorm";
 
@@ -168,6 +191,13 @@ export default function showContent() {
   minTempSvg1.src = temperatureIcon;
   minTempSvg2.src = downwardIcon;
   windPressureSvg.src = windPressureIcon;
+
+  cityHover.textContent = "City";
+  tempHover.textContent = "Temperature";
+  humidityHover.textContent = "Humidity";
+  maxTempHover.textContent = "Max Temp";
+  minTempHover.textContent = "Min Temp";
+  windPressureHover.textContent = "Wind Pressure";
 
   return content;
 }
