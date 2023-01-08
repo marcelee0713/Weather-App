@@ -3,6 +3,20 @@
   flex-direction: column;
   gap: 20px;
   width: 100%;
+  animation-name: showContent;
+  animation-duration: 1.2s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+@keyframes showContent {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
 .weather-image-container {
   display: flex;

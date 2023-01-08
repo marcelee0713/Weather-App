@@ -3,7 +3,7 @@ import "../styles/content.scss";
 import sunny01D from "../assets/01d.svg";
 import fewClouds02D from "../assets/02d.svg";
 import cloudy034D from "../assets/03-4d.svg";
-import showerRain10D from "../assets/09d.svg";
+import showerRain09D from "../assets/09d.svg";
 import rain10D from "../assets/10d.svg";
 import thunderstorm11D from "../assets/11d.svg";
 import snow13D from "../assets/13d.svg";
@@ -16,7 +16,16 @@ import upwardIcon from "../assets/upward.svg";
 import downwardIcon from "../assets/downward.svg";
 import windPressureIcon from "../assets/wind.svg";
 
-export default function showContent() {
+export default function showContent(
+  description,
+  iconId,
+  city,
+  temp,
+  humidity,
+  maxTemp,
+  minTemp,
+  windPressure
+) {
   const content = document.createElement("div");
   const weatherImageContainer = document.createElement("div");
   const line = document.createElement("hr");
@@ -171,17 +180,31 @@ export default function showContent() {
   minTempHover.classList.add("show-hover");
   windPressureHover.classList.add("show-hover");
 
-  // The values below will be changed later on
+  if (iconId === "01") {
+    weatherImage.src = sunny01D;
+  } else if (iconId === "02") {
+    weatherImage.src = fewClouds02D;
+  } else if (iconId === "03" || iconId === "04") {
+    weatherImage.src = cloudy034D;
+  } else if (iconId === "09") {
+    weatherImage.src = showerRain09D;
+  } else if (iconId === "10") {
+    weatherImage.src = rain10D;
+  } else if (iconId === "11") {
+    weatherImage.src = thunderstorm11D;
+  } else if (iconId === "13") {
+    weatherImage.src = snow13D;
+  } else if (iconId === "50") {
+    weatherImage.src = mist50D;
+  }
 
-  weatherImage.src = thunderstorm11D;
-  weatherDescription.textContent = "Thunderstorm";
-
-  cityValue.textContent = "Dagupan";
-  tempValue.textContent = "22°C";
-  humidityValue.textContent = "80%";
-  maxTempValue.textContent = "24°C";
-  minTempValue.textContent = "20°C";
-  windPressureValue.textContent = "1.63 m/s";
+  weatherDescription.textContent = description;
+  cityValue.textContent = city;
+  tempValue.textContent = temp;
+  humidityValue.textContent = humidity;
+  maxTempValue.textContent = maxTemp;
+  minTempValue.textContent = minTemp;
+  windPressureValue.textContent = windPressure;
 
   citySvg.src = cityIcon;
   tempSvg.src = temperatureIcon;

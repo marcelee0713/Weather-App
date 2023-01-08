@@ -1,0 +1,69 @@
+.loading-screen-container {
+  display: flex;
+  gap: 20px;
+  .circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #5b97aa;
+    perspective: 1000px;
+    opacity: 0;
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) {
+        animation-name: loadingScreen;
+        animation-duration: 2s;
+        animation-timing-function: ease-in-out;
+        animation-delay: (150ms * $i) - 300;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
+      }
+      @keyframes loadingScreen {
+        0% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.2;
+          transform: scale(0.8);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    }
+  }
+}
+.default-container,
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h2 {
+    color: #5b97aa;
+  }
+  .default-image-container,
+  .error-image-container {
+    max-width: 400px;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  animation-name: showPlaceholders;
+  animation-timing-function: ease-in-out;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes showPlaceholders {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
