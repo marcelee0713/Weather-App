@@ -67,3 +67,42 @@ footer {
     }
   }
 }
+
+@media only screen and (max-width: 50em) {
+  body {
+    padding: 1.2em 1.2em 0 1.2em;
+  }
+  main {
+    width: 600px;
+  }
+}
+
+@media only screen and (max-width: 38.125em) {
+  body {
+    padding: 1em 1em 0 1em;
+  }
+  main {
+    width: 450px;
+  }
+}
+
+@media only screen and (max-width: 28.75em) {
+  body {
+    padding: 0.6em 0.6em 0 0.6em;
+  }
+  main {
+    width: 310px;
+  }
+  footer {
+    .credit {
+      font-size: 0.9rem;
+      width: auto;
+      display: flex;
+      gap: 0.2em;
+
+      .github-logo {
+        transition: 250ms ease-in-out;
+      }
+    }
+  }
+}

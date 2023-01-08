@@ -65,7 +65,7 @@
     }
   }
 }
-.input-validation-text{
+.input-validation-text {
   opacity: 0;
   color: #5b97aa;
   padding-top: 0.2rem;
@@ -73,14 +73,14 @@
 }
 
 // input-validation-animations
-.show-span{
+.show-span {
   animation-name: showInputValid;
   animation-duration: 300ms;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
 }
 
-.remove-span{
+.remove-span {
   animation-name: removeInputValid;
   animation-duration: 300ms;
   animation-timing-function: ease-in-out;
@@ -88,25 +88,86 @@
 }
 
 @keyframes showInputValid {
-  from{
+  from {
     opacity: 0;
     transform: translateY(-50px);
   }
 
-  to{
+  to {
     opacity: 1;
     transform: translateY(0px);
   }
 }
 
 @keyframes removeInputValid {
-  from{
+  from {
     opacity: 1;
-    transform: translateY(0px); 
+    transform: translateY(0px);
   }
 
-  to{
+  to {
     opacity: 0;
     transform: translateY(-50px);
+  }
+}
+
+@media only screen and (max-width: 50em) {
+  .header-text-container {
+    h1 {
+      font-size: 3.5rem;
+    }
+    .sub-text {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 38.125em) {
+  .header-text-container {
+    h1 {
+      font-size: 3.2rem;
+    }
+    .sub-text {
+      font-size: 1.15rem;
+    }
+  }
+  .input-form {
+    width: 100%;
+    display: flex;
+    input {
+      font-size: 0.9rem;
+    }
+    ::placeholder {
+      color: #153945;
+      opacity: 0.7;
+    }
+  }
+  span {
+    font-size: 0.8rem;
+  }
+}
+
+@media only screen and (max-width: 28.75em) {
+  .header-text-container {
+    h1 {
+      font-size: 2.8rem;
+    }
+    .sub-text {
+      font-size: 1.05rem;
+    }
+  }
+  .input-form {
+    width: 100%;
+    display: flex;
+    input {
+      font-size: 0.8rem;
+    }
+    ::placeholder {
+      color: #153945;
+      opacity: 0.7;
+    }
+  }
+  span {
+    font-size: 0.7rem;
   }
 }
