@@ -2,6 +2,7 @@ import "../styles/header.scss";
 import searchIcon from "../assets/search.svg";
 
 export default function showHeader() {
+  let isSearchValid = false;
   const container = document.createElement("div");
   const textContainer = document.createElement("div");
   const searchContainer = document.createElement("div");
@@ -10,6 +11,7 @@ export default function showHeader() {
   const subText = document.createElement("div");
 
   const searchForm = document.createElement("form");
+  const inputValidationText = document.createElement("span");
   const searchInput = document.createElement("input");
   const searchButton = document.createElement("button");
   const imgBtn = document.createElement("img");
@@ -20,6 +22,7 @@ export default function showHeader() {
   textContainer.appendChild(bigText);
   textContainer.appendChild(subText);
   searchContainer.appendChild(searchForm);
+  searchContainer.appendChild(inputValidationText);
   searchForm.appendChild(searchInput);
   searchForm.appendChild(searchButton);
   searchButton.appendChild(imgBtn);
@@ -32,6 +35,7 @@ export default function showHeader() {
   searchForm.classList.add("input-form");
   searchForm.setAttribute("method", "get");
   searchForm.setAttribute("action", "");
+  inputValidationText.classList.add("input-validation-text");
 
   searchInput.setAttribute("type", "text");
   searchInput.setAttribute("placeholder", "Enter your city...");
@@ -44,6 +48,30 @@ export default function showHeader() {
   searchButton.setAttribute("type", "submit");
   bigText.textContent = "Weather App";
   subText.textContent = "Nice weather we're having...";
+  inputValidationText.textContent = "placeholder";
+
+  searchInput.addEventListener("input", () => {
+    let input = searchInput.value.trim();
+    isSearchValid = input !== "" ? true : false;
+    if (isSearchValid) {
+      inputValidationText.classList.add("remove-span");
+      inputValidationText.classList.remove("show-span");
+    } else {
+      inputValidationText.classList.remove("remove-span");
+      inputValidationText.classList.add("show-span");
+      inputValidationText.textContent = "Please enter an input!";
+      inputValidationText.style.color = "red";
+    }
+  });
+  searchForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    if (isSearchValid) {
+      console.log("Oh hell yeah");
+    } else {
+      console.log("Awh hell nawh man.");
+    }
+  });
 
   return container;
 }

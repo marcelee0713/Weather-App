@@ -15,7 +15,8 @@ body {
   font-family: "Signika Negative", sans-serif;
   display: flex;
   flex-direction: column;
-  padding: 2em;
+  align-items: center;
+  padding: 2em 2em 0 2em;
   gap: 10px;
 }
 header {
@@ -28,12 +29,17 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #153945;
+  padding: 2em 2.5em;
+  border-radius: 25px;
+  width: 750px;
 }
 footer {
   font-family: "Roboto", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 0.3em;
   a {
     color: #153945;
     align-self: center;
